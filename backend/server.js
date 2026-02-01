@@ -8,6 +8,8 @@ import resumeRoutes from "./routes/resume.routes.js";
 dotenv.config();
 connectDB();
 
+
+
 const app = express();
 
 app.use(cors());
@@ -15,8 +17,8 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/resume", resumeRoutes);
-app.use("/uploads", express.static("uploads"));
 
+ 
 app.get("/", (req, res) => {
   res.send("Resume Builder API running");
 });

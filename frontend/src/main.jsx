@@ -8,7 +8,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App />
 
-    {/* 🔔 REQUIRED FOR TOASTS */}
     <Toaster
       position="top-right"
       toastOptions={{

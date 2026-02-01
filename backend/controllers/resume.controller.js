@@ -53,24 +53,4 @@ export const deleteResume = async (req, res) => {
   res.json({ message: "Resume deleted" });
 };
 
-export const uploadProfileImage = async (req, res) => {
-  try {
-    const resume = await Resume.findOne({
-      _id: req.params.id,
-      userId: req.user._id,
-    });
 
-    if (!resume) {
-      return res.status(404).json({ message: "Resume not found" });
-    }
-
-    const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-
-    resume.profile.profileImage = imageUrl;
-    await resume.save();
-
-    res.json({ profileImage: imageUrl });
-  } catch (err) {
-    res.status(500).json({ message: "Upload failed" });
-  }
-};
